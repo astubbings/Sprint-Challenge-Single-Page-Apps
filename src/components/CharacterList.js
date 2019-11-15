@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
 
 
@@ -13,7 +13,7 @@ const CharacterList = () => {
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     const getChars = () => {
       axios
-        .get('https://rickandmortyapi.com/api/character/?page=10')
+        .get('https://rickandmortyapi.com/api/character/')
         .then(response => {
           setChars(response.data.results)
         })
@@ -29,7 +29,10 @@ const CharacterList = () => {
 // TODO: `array.map()` over your state here!
 
   return (
-    <section className="character-list">      
+    <section className="character-list">
+      <Link to="/"><button>Go Home</button></Link>
+      <Link to="/search"><button>Go Search</button></Link>
+      
       {chars.map((item, index) => (        
         <CharacterCard  char={item} key={index}/>
       ))}

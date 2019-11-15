@@ -14,6 +14,8 @@ export default function WelcomePage() {
         />
         <Link to="/"><button>Go Home</button></Link>
         <Link to="/search"><button>Go Search</button></Link>
+        <Link to="/characters"><button>Go Characters</button></Link>
+
 
       </header>
     </section>
