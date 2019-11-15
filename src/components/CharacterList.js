@@ -17,9 +17,9 @@ const CharacterList = () => {
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-    const getChars = () => {
+    
       axios
-        .get('https://rickandmortyapi.com/api/character/?page=19')
+        .get('https://rickandmortyapi.com/api/character/?page=12')
         .then(response => {
           setChars(response.data.results)
         })
@@ -27,9 +27,6 @@ const CharacterList = () => {
           console.error('Server Error', error);
         });
 
-    }
-
-    getChars();
   }, []);
 
 // TODO: `array.map()` over your state here!
