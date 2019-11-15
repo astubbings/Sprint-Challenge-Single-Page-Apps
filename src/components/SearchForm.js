@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
+import styled from "styled-components";
+
+
+const CharListDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: auto;
+`;
 
 export default function SearchForm() {
 
@@ -10,7 +18,7 @@ export default function SearchForm() {
 
   useEffect(() => {
     axios
-      .get('https://rickandmortyapi.com/api/character/')
+      .get('https://rickandmortyapi.com/api/character/?page=12')
       .then(response => {
         const results = response.data.results.filter(character =>
         character.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -34,7 +42,9 @@ export default function SearchForm() {
   return (
     <>
       <Link to="/"><button>Go Home</button></Link>
-      <Link to="/search"><button>Go Search</button></Link>
+      <Link to="/characters"><button>Go to Characters</button></Link>
+      <br/>
+      <br/>
       <section className="search-form">
         <form>
           {/* We apply two-way data binding to the input field, which basically takes the value from the user and saves it into the state. */}
@@ -51,11 +61,11 @@ export default function SearchForm() {
             onChange={handleChange}
           />
         </form>
-        <div className="character-list">
+        <CharListDiv>
           {searchResults.map((item, index) => (
             <CharacterCard char={item} key={index} />
           ))}
-        </div>
+        </CharListDiv>
 
       </section>
     </>

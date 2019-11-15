@@ -7,14 +7,16 @@ export default function WelcomePage() {
     <section className="welcome-page">
       <header>
         <h1>Welcome to the ultimate fan site!</h1>
+        <Link to="/search"><button>Go Search</button></Link>
+        <Link to="/characters"><button>Go to Characters</button></Link>
+        <br/>
+        <br/>
         <img
           className="main-img"
           src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           alt="rick"
         />
-        <Link to="/"><button>Go Home</button></Link>
-        <Link to="/search"><button>Go Search</button></Link>
-        <Link to="/characters"><button>Go Characters</button></Link>
+        
 
 
       </header>
